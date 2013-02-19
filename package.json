@@ -1,25 +1,35 @@
 {
-	"name": "redis-locking-worker",
-	"version": "0.1.0",
-	"description": "Event based implementation of global worker locks using Redis",
-	"main": "index.js",
-	"directories": {
-		"example": "examples"
-	},
-	"dependencies": {
-		"redis": "~0.8.2"
-	},
-	"devDependencies": {},
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-	"repository": "http://github.com/jcohen/redis-locking-worker",
-	"author": "Joshua Cohen <jecohen@yahoo-inc.com>",
-	"keywords" : [ "redis", "lock" ],
-	"licenses" : [
-		{
-			"type" : "MIT",
-			"url" : "http://github.com/jcohen/redis-locking-worker/raw/master/LICENSE"
-		}
-	]
+  "name": "redis-locking-worker",
+  "version": "0.1.0",
+  "description": "Event based implementation of global worker locks using Redis",
+  "main": "index.js",
+  "directories": {
+    "example": "examples"
+  },
+  "dependencies": {
+    "redis": "~0.8.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/josem/redis-worker"
+  },
+  "author": {
+    "name": "José M. Gilgado",
+    "email": "jm.gilgado@gmail.com"
+  },
+  "keywords": [
+    "redis",
+    "lock",
+    "multiple"
+  ],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://github.com/josen/redis-worker/raw/master/LICENSE"
+    }
+  ]
 }

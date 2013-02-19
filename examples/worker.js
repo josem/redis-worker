@@ -38,4 +38,4 @@ lock.on("status", function(message) {
 	console.log("Worker %d Status message from lock: %s", cluster.worker.id, message);
 });
 
-lock.acquire();
+lock.acquire('lock1');

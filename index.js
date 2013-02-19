@@ -25,7 +25,7 @@ var RedisLockingWorker = module.exports = function RedisLockingWorker(settings) 
 		this.client = redis.createClient(settings.port, settings.host);
 	}
 
-	this.lockKey = settings.lockKey;
+	this.lockKey = null;
 
 	this.statusLevel = settings.statusLevel || StatusLevels.Normal;
 	this.lockTimeout = settings.lockTimeout || TIMEOUT_DEFAULT;
@@ -38,7 +38,9 @@ var StatusLevels = RedisLockingWorker.StatusLevels = {
 	"Normal" : 2
 };
 
-RedisLockingWorker.prototype.acquire = function acquire() {
+RedisLockingWorker.prototype.acquire = function acquire(customKey) {
+  this.lockKey = customKey;
+  
 	var that = this;
 
 	this.client.setnx(this.lockKey, 1, function(error, result) {

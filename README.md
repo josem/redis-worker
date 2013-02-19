@@ -42,8 +42,10 @@ worker.on("status", function(message) {
 	console.log("Status message from lock: %s", message);
 });
 
-worker.acquire();
+worker.acquire("lockKey");
 ```
+
+Notice that if you pass the same key to the acquire method all the workers will try to perform the same task. 
 
 ## Options
 
@@ -53,7 +55,6 @@ You can specify a variety of options when creating a new lock instance:
 		"client" : null,										/* Instance of a node-redis redis client (https://github.com/mranney/node_redis) */
 		"host" : "localhost",									/* Redis host to connect to if a client wasn't explicitly passed in */
 		"port" : 6379,											/* Redis port to connect to if a client wasn't explicitly passed in */
-		"lockKey" : null,										/* Name of the key to use for this lock, defaults to null, not optional */
 		"statusLevel" : RedisLockingWorker.StatusLevel.Normal,	/* Verbosity to use when emitting status events */
 		"lockTimeout" : 5000,									/* Time, in milliseconds, before a lock should expire. */
 		"maxAttempts" : 5,										/* Number of attempts to complete work before giving up */
