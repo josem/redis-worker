@@ -1,4 +1,4 @@
-# redis-locking-worker
+# Redis Worker
 
 ## Overview
 
