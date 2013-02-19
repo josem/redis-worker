@@ -12,9 +12,9 @@ var TIMEOUT_DEFAULT = 5000;
 var MAX_LOCK_ATTEMPTS_DEFAULT = 5;
 var DONE_VALUE = "DONE";
 
-var RedisLockingWorker = module.exports = function RedisLockingWorker(settings) {
-	if (!(this instanceof RedisLockingWorker)) {
-		return new RedisLockingWorker(settings);
+var RedisWorker = module.exports = function RedisWorker(settings) {
+	if (!(this instanceof RedisWorker)) {
+		return new RedisWorker(settings);
 	}
 
 	if (settings.client) {
@@ -31,14 +31,14 @@ var RedisLockingWorker = module.exports = function RedisLockingWorker(settings) 
 	this.lockTimeout = settings.lockTimeout || TIMEOUT_DEFAULT;
 	this.maxAttempts = settings.maxAttempts || MAX_LOCK_ATTEMPTS_DEFAULT;
 };
-util.inherits(RedisLockingWorker, events.EventEmitter);
+util.inherits(RedisWorker, events.EventEmitter);
 
-var StatusLevels = RedisLockingWorker.StatusLevels = {
+var StatusLevels = RedisWorker.StatusLevels = {
 	"Verbose" : 1,
 	"Normal" : 2
 };
 
-RedisLockingWorker.prototype.acquire = function acquire(customKey) {
+RedisWorker.prototype.acquire = function acquire(customKey) {
   this.lockKey = customKey;
   
 	var that = this;
@@ -58,7 +58,7 @@ RedisLockingWorker.prototype.acquire = function acquire(customKey) {
 	});
 };
 
-RedisLockingWorker.prototype.done = function done(lastAttempt) {
+RedisWorker.prototype.done = function done(lastAttempt) {
 	if (lastAttempt) {
 		this.client.del(this.lockKey);
 	} else {

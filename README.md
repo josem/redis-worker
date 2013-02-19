@@ -11,11 +11,11 @@ An event driven implementation of global locks using Redis.
 ## Usage
 
 ```js
-var RedisLockingWorker = require("redis-locking-worker");
+var RedisWorker = require("redis-locking-worker");
 
-var worker = new RedisLockingWorker({
+var worker = new RedisWorker({
 	"lockKey" : "mylock",
-	"statusLevel" : RedisLockingWorker.StatusLevels.Verbose,
+	"statusLevel" : RedisWorker.StatusLevels.Verbose,
 	"lockTimeout" : 5000,
 	"maxAttempts" : 5
 });
@@ -55,7 +55,7 @@ You can specify a variety of options when creating a new lock instance:
 		"client" : null,										/* Instance of a node-redis redis client (https://github.com/mranney/node_redis) */
 		"host" : "localhost",									/* Redis host to connect to if a client wasn't explicitly passed in */
 		"port" : 6379,											/* Redis port to connect to if a client wasn't explicitly passed in */
-		"statusLevel" : RedisLockingWorker.StatusLevel.Normal,	/* Verbosity to use when emitting status events */
+		"statusLevel" : RedisWorker.StatusLevel.Normal,	/* Verbosity to use when emitting status events */
 		"lockTimeout" : 5000,									/* Time, in milliseconds, before a lock should expire. */
 		"maxAttempts" : 5,										/* Number of attempts to complete work before giving up */
 	}

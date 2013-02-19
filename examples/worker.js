@@ -5,13 +5,13 @@ Copyrights licensed under the MIT License. See the accompanying LICENSE file for
 
 var cluster = require("cluster");
 
-var RedisLock = require("../");
+var RedisWorker = require("../");
 
 var SUCCESS_CHANCE = 0.15;
 
-var lock = new RedisLock({
+var lock = new RedisWorker({
 	"lockKey" : "mylock",
-	"statusLevel" : RedisLock.StatusLevels.Verbose,
+	"statusLevel" : RedisWorker.StatusLevels.Verbose,
 	"lockTimeout" : 5000,
 	"maxAttempts" : 5
 });
