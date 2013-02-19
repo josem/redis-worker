@@ -6,12 +6,12 @@ An event driven implementation of global locks using Redis.
 
 ## Install
 
-    npm install redis-locking-worker
+    npm install redis-worker
 
 ## Usage
 
 ```js
-var RedisWorker = require("redis-locking-worker");
+var RedisWorker = require("redis-worker");
 
 var worker = new RedisWorker({
 	"lockKey" : "mylock",
